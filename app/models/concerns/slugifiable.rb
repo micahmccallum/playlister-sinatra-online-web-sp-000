@@ -3,20 +3,15 @@ module Slugifiable
 
   module ClassMethods
     def self.slugify(text)
-      downcase_no_space = text.downcase.gsub(/[" "]/, '-')
-      downcase_no_space.gsub(/[!@#$%^&*()_'"`~]/, '')
-    end
-
-    def self.deslugify(slug)
-      remove_dash_add_space = slug.gsub(/[-]/, " ")
-      remove_dash_add_space.split.map(&:capitalize).join(" ")
-    end
+      remove_punctuation = text.gsub(/[!@#%^*()_'"`~].&-/, '')
+      replace_dollar = remove_punctuation.gsub(/[$]/, 's')
+      downcase_no_space = replace_dollar.downcase.gsub(/[" "]/, '-')      
+    end   
   end
     
   module InstanceMethods
     def slug
       Slugifiable::ClassMethods::slugify(self.name)
-    end       
+    end   
   end
-
 end

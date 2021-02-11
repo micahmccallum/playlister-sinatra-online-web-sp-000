@@ -8,7 +8,7 @@
 </head>
 <body>
   <% @genres.each do |genre| %>
-    <span><h2><a href="/genres/<%= genre.name  %>"><%= genre.name %></a></h2></span>
+    <span><h2><a href="/genres/<%= genre.slug  %>"><%= genre.name %></a></h2></span>
   <% end %>
 </body>
 </html>

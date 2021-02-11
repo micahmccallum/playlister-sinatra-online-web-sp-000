@@ -8,7 +8,7 @@
 </head>
 <body>
   <% @artists.each do |artist| %>
-    <span><h2><a href="/artists/<%= artist.name  %>"><%= artist.name %></a></h2></span>
+    <span><h5><a href="/artists/<%= artist.slug  %>"><%= artist.name %></a></h5></span>
   <% end %>
 </body>
 </html>
