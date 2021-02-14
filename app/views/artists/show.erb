@@ -17,7 +17,7 @@
   <h2>Genres:</h2>
   <ol>
     <% @artist.genres.each do |genre| %>
-      <li><a href="/genres/<%= genre.slug %>"><%= genre.name.capitalize %></a></li>
+      <li><a href="/genres/<%= genre.slug %>"><%= genre.name %></a></li>
     <% end %>
   </ol>   
 </body>
