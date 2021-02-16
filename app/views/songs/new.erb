@@ -8,13 +8,13 @@
 </head>
 <body>
     <form action="/songs" method="POST">
-      <p><label>Song name: <input type="text" name="song[name]" id="song_name"></label></p>
+      <p><label>Name: <input type="text" name="song[name]<%  %>" id="song_name"></label></p>
       <p><label>Artist name: <input type="text" name="artist[name]" id="song_artist"></label></p>
       <% @genres.each do |genre| %>
         <input type="checkbox" name="song_genre[genre_ids][]" id="<%= genre.id %>" value="<%= genre.id %>" >
         <%= genre.name %>
       <% end %>
-      <p><input type="submit" value="Create New Song" id="submit"></p>
+      <p><input type="submit" value="Create" id="submit"></p>
     </form>
 </body>
 </html>

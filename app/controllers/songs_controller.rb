@@ -18,7 +18,12 @@ class SongsController < ApplicationController
   
 
   post '/songs' do
-    binding.pry
-    
+    Song.exists?(name: params[:song][:name]) ? (erb :'/songs/show') : @song = Song.create(params[:song])
+    Artist.exists?(name: params[:artist][:name]) ? @song.artist = Artist.find_by(name: params[:artist][:name]) : @song.artist = Artist.create(params[:artist])
+    params[:song_genre][:genre_ids].each do |genre|
+      @song.genres << Genre.find(genre)
+    end
+    @song.save
+    redirect "/songs/#{@song.slug}"
   end
 end
