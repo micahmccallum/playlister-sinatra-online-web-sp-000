@@ -7,6 +7,9 @@
   <title>Document</title>
 </head>
 <body>
+  <% if flash.has?(:message) %>
+    <%= flash[:message] %>
+  <% end %>
   <span><h1><%= @song.name %></h1></span>
   <h2>Artist:</h2>
   <ol>
